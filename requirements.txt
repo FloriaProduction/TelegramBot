@@ -44,7 +44,6 @@ pyglet==1.5.14
 pylint==2.6.0
 PyMsgBox==1.0.9
 pyperclip==1.8.1
-pypiwin32==223
 PyRect==0.1.4
 PyScreeze==0.1.26
 PySocks==1.7.1
@@ -54,7 +53,6 @@ python-dateutil==2.8.1
 python-editor==1.0.4
 PyTweening==1.0.3
 pytz==2020.4
-pywin32==228
 pywinauto==0.6.8
 requests==2.25.0
 rsa==4.6
