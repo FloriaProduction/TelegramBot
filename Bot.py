@@ -25,6 +25,19 @@ async def PhotoCheck(message: types.Message):
     os.remove(name)
     await message.answer("Ссылка на облако -", folder["public_url"])
 
+async def on_startup(dp):
+    await bot.set_webhook(WEBHOOK_URL,drop_pending_updates=True)
+
+def main():
+    start_webhook(
+        dispatcher=dp,
+        webhook_path=WEBHOOK_PATH,
+        skip_updates=True,
+        on_startup=on_startup,
+        host=WEBAPP_HOST,
+        port=WEBAPP_PORT,
+    )
+
 @dp.message_handler(content_types=['document'])
 async def DocumentCheck(message: types.Message):
     DocumentDict = message.document
@@ -55,4 +68,4 @@ async def DocumentCheck(message: types.Message):
         os.remove(name)
 
 if __name__ == '__main__':
-    executor.start_polling(dp, skip_updates=True)
+    main()
