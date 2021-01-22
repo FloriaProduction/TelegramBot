@@ -16,7 +16,6 @@ async def PhotoCheck(message: types.Message):
     time = datetime.datetime.now()
     time = re.sub("[$|@|&|,|!|#|$|%|^|&|*|(|)|:|<|>|?|,|.|/|]",".",str(time))
     await message.photo[-1].download("{}.{}".format(message.chat.username, time) + '.png')
-    await message.answer("Фото скачано, начинаю загрузку в облако...")
     name = "{}.{}.png".format(message.chat.username, time)
     folder = "/Photos/{}".format(name)
     y.upload(name, "/Photos/{}".format(name))
@@ -35,7 +34,6 @@ async def DocumentCheck(message: types.Message):
         time = datetime.datetime.now()
         time = re.sub("[$|@|&|,|!|#|$|%|^|&|*|(|)|:|<|>|?|,|.|/|]",".",str(time))
         await message.document.download(DocumentDict)
-        await message.answer("Файл скачан, начинаю загрузку в облако...")
         folder = "/Documents/{}".format(name)
         try:
             y.upload(name, "/Documents/{}".format(name))
